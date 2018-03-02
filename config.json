@@ -1,0 +1,23 @@
+{
+    "development": {
+      "username": "root",
+      "password": "Memememe1",
+      "database": "wedding_db",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "test": {
+      "username": "root",
+      "password": "Memememe1",
+      "database": "wedding_db",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "production": {
+      "username": "root",
+      "password": "Memememe1",
+      "database": "wedding_db",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    }
+  }
