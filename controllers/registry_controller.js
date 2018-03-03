@@ -15,6 +15,17 @@ router.get("/", function(req, res) {
 		res.render("index", weddingInfo);
 	});
 });
+router.get("/authenticated", function(req, res) {
+	wedding.all(function(data) {
+		var weddingInfo = {
+			wedding: data
+		};
+
+		console.log(weddingInfo);
+
+		res.render("index_authed", weddingInfo);
+	});
+});
 
 	router.post("/", function(req, res) {
 
