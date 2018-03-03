@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo">hitched</a>
@@ -28,42 +28,54 @@
 
       </div>
     </div>
-    <div class="parallax"><img src="images/background1.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="assets/images/background1.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
 
   <div class="container">
     <div class="section">
 
-      <!--   Icon Section   -->
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center brown-text"><i class="material-icons">loyalty</i></h2>
-            <h5 class="center">His Wishes</h5>
+            <h5 class="center">Gifts For Married Couple</h5>
+            {{#each wedding}}
+            {{#unless this.reserved}}
 
-            <p class="light">This is where his items will be listed<br><br><br><br><br><br><br><br><br></p>
-          </div>
-        </div>
+        <div class="well well-lg"><b>{{this.gift_name}}</b>
+        <form action="/{{this.id}}/0?_method=PUT" method="POST">
+          <button type="submit">Reserved</button>
+        </form><form action="/{{this.id}}?_method=PUT" method="POST">
+        </form></div>
+        {{/unless}}
+        {{/each}}
+      </div>
+    </div>
+
 
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center brown-text"><i class="material-icons">card_giftcard</i></h2>
-            <h5 class="center">Reserved Wishes</h5>
-
-            <p class="light">This is where the reserved items will be listed</p>
+            <h5 class="center">Reserved Gifts</h5>
+            {{#each wedding}}
+            {{#if this.reserved}}
+            <div class="well well-lg"><b>{{this.gift_name}}</b>
+            </div>
+           {{/if}}
+           {{/each}}
           </div>
         </div>
+   </div>
+  
 
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">loyalty</i></h2>
-            <h5 class="center">Her Wishes</h5>
-
-            <p class="light">This is where her items will be listed</p>
-          </div>
-        </div>
-      </div>
+   <div class="col-lg-4 col-lg-offset-4">
+      <form action="/?_method=POST" method="POST">
+        <h4>Enter your Gift: </h4>
+        <input type="text" name="gift_name">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
 
     </div>
   </div>
@@ -77,7 +89,7 @@
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="images/background2.jpg" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="assets/images/background2.jpg" alt="Unsplashed background img 2"></div>
   </div>
 
   <div class="container">
@@ -111,120 +123,49 @@
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="images/background3.jpg" alt="Unsplashed background img 3"></div>
-=======
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">hitched</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Sign In</a></li> <li><a href="#">Sign Up</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Sign In</a></li> <li><a href="#">Sign Up</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center red-text text-lighten-2">Wedding Gift Registry</h1>
-        <div class="row center">
-          <h5 class="header col s12 black-text light">Support your loved ones and friends on their special day</h5>
-        </div>
-        <div class="row center">
-          <a href="#" id="download-button" class="btn-large waves-effect waves-light red lighten-1">Sign In</a>
-        </div>
-        <br><br>
-
+    <div class="parallax"><img src="assets/images/background3.jpg" alt="Unsplashed background img 3"></div>
+  
       </div>
     </div>
-    <div class="parallax"><img src="images/background1.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
-
-  <div class="container">
-    <div class="section">
-
-      <!--   Icon Section   -->
+  <footer class="page-footer rose">
+    <div class="container">
       <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">loyalty</i></h2>
-            <h5 class="center">His Wishes</h5>
+        <div class="col l6 s12">
+          <h5 class="white-text">Wedding Info</h5>
+          <p class="grey-text text-lighten-4">This is the location where all the wedding info will be listed. 
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. 
+            Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros.</p>
 
-            <p class="light">This is where his items will be listed<br><br><br><br><br><br><br><br><br></p>
-          </div>
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Contacts</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Person 1</a></li>
+            <li><a class="white-text" href="#!">Person 2</a></li>
+            <li><a class="white-text" href="#!">Person 3</a></li>
+            <li><a class="white-text" href="#!">Person 4</a></li>
+          </ul>
         </div>
 
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">card_giftcard</i></h2>
-            <h5 class="center">Reserved Wishes</h5>
-
-            <p class="light">This is where the reserved items will be listed</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">loyalty</i></h2>
-            <h5 class="center">Her Wishes</h5>
-
-            <p class="light">This is where her items will be listed</p>
-          </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Phone</h5>
+          <ul>
+            <li><a class="white-text" href="#!">303-555-1212</a></li>
+            <li><a class="white-text" href="#!">303-555-1212</a></li>
+            <li><a class="white-text" href="#!">303-555-1212</a></li>
+            <li><a class="white-text" href="#!">303-555-1212</a></li>
+          </ul>
         </div>
       </div>
-
     </div>
-  </div>
-
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
+    <div class="footer-copyright">
       <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 black-text light">Congratulations to the happy couple!</h5>
-        </div>
+      Made by <a class="brown-text text-lighten-3" href="#">DU Web Dev Bootcampers</a>
       </div>
     </div>
-    <div class="parallax"><img src="images/background2.jpg" alt="Unsplashed background img 2"></div>
-  </div>
-
-  <div class="container">
-    <div class="section">
-
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4 id="aboutTitle">About the Couple</h4>
-          <p class="left-align red-text light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non 
-            consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, 
-            ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium 
-            eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis 
-            nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum 
-            sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique 
-            erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere 
-            cubilia Curae;</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
+  </footer>
 
 
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 black-text light">Don't miss out on a wonderful evening of celebration!</h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="images/background3.jpg" alt="Unsplashed background img 3"></div>
->>>>>>> e9c0a850b6ac6ff6a83e75a10c104f81bdf43a73
-  </div>
