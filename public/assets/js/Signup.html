@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+  
+    <title>Wedding Registry</title>
+     <meta charset="utf-8">
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+      <!-- Compiled and minified  materialize CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <!-- CSS -->
+      <link rel="stylesheet" type="text/css" href="./assets/css/login.css"/>
+        </head>
+    <body>
+
+
+
+    <div class="container animated fadeIn">
+        <div class="row">
+            <div class="col s12 m10 offset-m1">
+                <div class="card">
+                    <div class="card-title center-align">
+                        <h4>New User SignUp Form</h4>
+                    </div>
+                    <div class="card-content">
+                        <form action="#" id="signup" name="signup">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="first-name" type="text" class="validate" name="firstname">
+                                    <label for="first-name">First Name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input id="last-name" type="text" class="validate" name="lastname">
+                                    <label for="last_name">Last Name</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="email" type="email" class="validate" name="email">
+                                    <label for="email">Email</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="password" type="password" class="validate" name="password">
+                                    <label for="password">Password</label>
+                                </div>
+                            </div>
+                            
+                            <div class="input-field right-align">
+                                <button class="btn" id="submit" type="submit" name="action">Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+     <!-- Firebase Reference -->
+      <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <!-- <script type="text/javascript" src="./assets/javascript/weddings.js"></script> -->
+
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+    var config = {
+    apiKey: "AIzaSyApDL1HTnbpSrAvuwP-PE8SXx6Ap1K0rC8",
+    authDomain: "project2-efb9c.firebaseapp.com",
+    databaseURL: "https://project2-efb9c.firebaseio.com",
+    projectId: "project2-efb9c",
+    storageBucket: "project2-efb9c.appspot.com",
+    messagingSenderId: "712607808160"
+  };
+firebase.initializeApp(config);
+
+
+$("#submit").on("click", function(event) {
+       event.preventDefault();
+     var userEmail = document.getElementById("email").value;
+     var userPassword = document.getElementById("password").value;
+  
+  firebase
+      .auth()
+      .createUserWithEmailAndPassword(userEmail, userPassword)
+      .catch(function(error) {
+        console.log("register error", error);
+        if (error.code === "auth/email-already-in-use") {
+          var credential = firebase.auth.EmailAuthProvider.credential(userEmail, userPassword)
+          alert(error);
+        }
+      });
+
+
+    });
+
+  // app.signOut = function() {
+  //   // Sign out
+  // firebase.auth().signOut();
+  // };
+  // // Listen to auth state changes
+  // firebase.auth().onAuthStateChanged(function(user) {
+  //   app.user = user;
+  //   console.log("user", user);
+  //   window.location.replace('/authenticated');
+  // });
+
+  firebase.auth().onAuthStateChanged(user => {
+  if(user) {
+    window.location.replace('/authenticated');  }
+  });
+
+});
+
+</script>
+
+
+     
+      
+    </body>
+  </html>

@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+  <html>
+    <head>
+  
+    <title>Wedding Registry</title>
+     <meta charset="utf-8">
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+      <!-- Compiled and minified  materialize CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <!-- CSS -->
+      <link rel="stylesheet" type="text/css" href="./assets/css/login.css"/>
+        </head>
+    <body>
+
+
+        <div class="container">
+            <div class="row">
+            <div class="col s6 offset-s3 z-depth-1" id="panell">
+            <h5 id="title">Login Form</h5>
+            <form>
+
+        <div class="input-field" id="username">
+              <input  type="text" class="validate" id='emailField' >
+              <label for="username">UserEmail</label>
+        </div>
+
+         <div class="input-field" id="password">
+              <input  type="password" id='passwordField' class="validate">
+              <label for="password">Password</label>
+        </div>
+        <a class="waves-effect waves-light btn" id="loginbtn">Login</a>
+        <a href='/signup' class="waves-effect waves-light btn" id="Signup">Sign Up</a>
+        <a class="waves-effect waves-light btn" id="Logout">Logout</a>
+        </form>
+
+        </div>
+      </div>
+
+    </div>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+    var config = {
+    apiKey: "AIzaSyApDL1HTnbpSrAvuwP-PE8SXx6Ap1K0rC8",
+    authDomain: "project2-efb9c.firebaseapp.com",
+    databaseURL: "https://project2-efb9c.firebaseio.com",
+    projectId: "project2-efb9c",
+    storageBucket: "project2-efb9c.appspot.com",
+    messagingSenderId: "712607808160"
+  };
+  firebase.initializeApp(config);
+
+  
+     $("#loginbtn").on("click", function(event) {
+       event.preventDefault();
+     var userEmail = document.getElementById("emailField").value;
+     var userPassword = document.getElementById("passwordField").value;
+
+     console.log(userEmail, userPassword);
+     firebase.auth().signInWithEmailAndPassword(userEmail, userPassword)
+      .then((response, error) => {
+       console.log(response);
+       if(!error) {
+        window.location.replace('/authenticated');
+       }
+     })
+      .catch(function(error) {
+       // Handle Errors here.
+           var errorCode = error.code;
+           var errorMessage = error.message;
+
+        console.log("Error : " + errorMessage);
+    
+        });
+
+    });
+
+ });
+  // var modal = document.getElementById("id01");
+
+  //    function hideLogin() {
+  //   $("#id01").modal("close");
+  // }
+
+  // function showLogin() {
+  //  $("body").prepend(`<div id="id01" class="modal">
+  
+  //   <form class="modal-content animate" action="/action_page.php">
+  //     <div class="imgcontainer">
+  //       <span onclick="hideLogin()" class="close" title="Close Modal">&times;</span>
+      
+  //        </div>
+
+  //    <div class="container">
+  //      <label><b>Email:</b></label>
+  //     <input type="text" placeholder="Your Email" name="uname" required>
+
+  //     <label><b>Password:</b></label>
+  //    <input type="password" placeholder="Enter Password" name="password" required>
+        
+  //     <button class="btn" type="submit">Login</button>
+  //    <button type="button" onclick="hideLogin()" class="btn cancelbtn">Cancel</button>
+  //  </div>
+  //  </form>
+  // </div>`);
+  //  $("#id01").modal();
+  //   $("#id01").modal("open");
+
+  // };
+
+
+ // function hideLogin() {
+ //   $("#id01").modal("close");
+ // }
+
+ // function showLogin() {
+ //   $("body").prepend(`<div id="id01" class="modal">
+  
+ //   <form class="modal-content animate" action="/action_page.php">
+ //     <div class="imgcontainer">
+ //       <span onclick="hideLogin()" class="close" title="Close Modal">&times;</span>
+      
+ //    </div>
+
+ //   <div class="container">
+ //      <label><b>Email:</b></label>
+ //      <input type="text" placeholder="Your Email" name="uname" required>
+
+ //      <label><b>Password:</b></label>
+ //      <input type="password" placeholder="Enter Password" name="password" required>
+        
+ //     <button class="btn" type="submit">Login</button>
+ //     <button type="button" onclick="hideLogin()" class="btn cancelbtn">Cancel</button>
+ //   </div>
+ //  </form>
+ // </div>`);
+ //   $("#id01").modal();
+ //   $("#id01").modal("open");
+
+ // };
+
+
+</script>
+       <!-- Firebase Reference -->
+      <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <!-- <script type="text/javascript" src="./assets/javascript/weddings.js"></script> -->
+      
+    </body>
+  </html>
+                
