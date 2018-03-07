@@ -35,6 +35,48 @@ router.get("/authenticated", function(req, res) {
 		res.render("index_authed", weddingInfo);
 	});
 });
+
+
+
+
+router.get("/guestlist", function(req, res) {
+	wedding.all(function(data) {
+		var weddingInfo = {
+			wedding: data
+		};
+
+		console.log(weddingInfo);
+
+		res.render("guestlist", weddingInfo);
+	});
+});
+
+
+
+router.put("/:id/:update", function(req, res) {
+		var item = {id: req.params.id, condition: req.params.update};
+		//console.log("condition", condition);
+
+		if (item.condition === "0") {
+			wedding.update({reserved: true}, {id: item.id}, function() {
+
+			});
+		}
+		else {
+			wedding.update({reserved: false}, item.id, function() {
+			});
+		}
+		wedding.all(function(data) {
+		var weddingInfo = {
+			wedding: data
+		};
+
+		console.log(weddingInfo);
+
+		res.render("guestlist", weddingInfo);
+	});
+
+	});
 router.put("/:id/:update", function(req, res) {
 		var item = {id: req.params.id, condition: req.params.update};
 		//console.log("condition", condition);
