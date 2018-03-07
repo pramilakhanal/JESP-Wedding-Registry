@@ -34,7 +34,7 @@ p {
 }
 
 #giftSection {
-  margin-left: 20%;
+  margin-left: 22%;
   margin-top: 40px;
   margin-bottom: 80px;
 }
@@ -53,6 +53,17 @@ p {
 
 #weddingInfoSection {
   margin: 40px 0 40px 0;
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
 }
 
 
@@ -76,15 +87,4 @@ p {
   #giftSection {
     margin-left: auto;
   }
-}
-
-.icon-block {
-  padding: 0 15px;
-}
-.icon-block .material-icons {
-  font-size: inherit;
-}
-
-footer.page-footer {
-  margin: 0;
 }
