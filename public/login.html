@@ -36,7 +36,6 @@
         </div>
         <a class="waves-effect waves-light btn" id="loginbtn">Login</a>
         <a href='/signup' class="waves-effect waves-light btn" id="Signup">Sign Up</a>
-        <a class="waves-effect waves-light btn" id="Logout">Logout</a>
         </form>
 
         </div>
@@ -62,6 +61,7 @@
   
      $("#loginbtn").on("click", function(event) {
        event.preventDefault();
+
      var userEmail = document.getElementById("emailField").value;
      var userPassword = document.getElementById("passwordField").value;
 
@@ -118,35 +118,7 @@
   // };
 
 
- // function hideLogin() {
- //   $("#id01").modal("close");
- // }
-
- // function showLogin() {
- //   $("body").prepend(`<div id="id01" class="modal">
-  
- //   <form class="modal-content animate" action="/action_page.php">
- //     <div class="imgcontainer">
- //       <span onclick="hideLogin()" class="close" title="Close Modal">&times;</span>
-      
- //    </div>
-
- //   <div class="container">
- //      <label><b>Email:</b></label>
- //      <input type="text" placeholder="Your Email" name="uname" required>
-
- //      <label><b>Password:</b></label>
- //      <input type="password" placeholder="Enter Password" name="password" required>
-        
- //     <button class="btn" type="submit">Login</button>
- //     <button type="button" onclick="hideLogin()" class="btn cancelbtn">Cancel</button>
- //   </div>
- //  </form>
- // </div>`);
- //   $("#id01").modal();
- //   $("#id01").modal("open");
-
- // };
+ 
 
 
 </script>

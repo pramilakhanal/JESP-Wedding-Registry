@@ -89,38 +89,61 @@ $("#submit").on("click", function(event) {
        event.preventDefault();
      var userEmail = document.getElementById("email").value;
      var userPassword = document.getElementById("password").value;
-  
-  firebase
-      .auth()
-      .createUserWithEmailAndPassword(userEmail, userPassword)
-      .catch(function(error) {
-        console.log("register error", error);
-        if (error.code === "auth/email-already-in-use") {
-          var credential = firebase.auth.EmailAuthProvider.credential(userEmail, userPassword)
-          alert(error);
-        }
-      });
 
+
+      firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword)
+      .then((response, error) => {
+       console.log(response);
+       if(!error) {
+        window.location.replace('/authenticated');
+       }
+     })
+      .catch(function(error) {
+       // Handle Errors here.
+           var errorCode = error.code;
+           var errorMessage = error.message;
+
+        console.log("Error : " + errorMessage);
+        if (error.code === "auth/email-already-in-use") 
+          alert(error);
+    
+        });
 
     });
 
-  // app.signOut = function() {
-  //   // Sign out
-  // firebase.auth().signOut();
-  // };
-  // // Listen to auth state changes
-  // firebase.auth().onAuthStateChanged(function(user) {
-  //   app.user = user;
-  //   console.log("user", user);
-  //   window.location.replace('/authenticated');
-  // });
+ });
+  
+//   firebase
+//       .auth()
+//       .createUserWithEmailAndPassword(userEmail, userPassword)
+//       .catch(function(error) {
+//         console.log("register error", error);
+//         if (error.code === "auth/email-already-in-use") {
+//           var credential = firebase.auth.EmailAuthProvider.credential(userEmail, userPassword)
+//           alert(error);
+//         }
+//       });
 
-  firebase.auth().onAuthStateChanged(user => {
-  if(user) {
-    window.location.replace('/authenticated');  }
-  });
 
-});
+//     });
+
+//   // app.signOut = function() {
+//   //   // Sign out
+//   // firebase.auth().signOut();
+//   // };
+//   // // Listen to auth state changes
+//   // firebase.auth().onAuthStateChanged(function(user) {
+//   //   app.user = user;
+//   //   console.log("user", user);
+//   //   window.location.replace('/authenticated');
+//   // });
+
+//   firebase.auth().onAuthStateChanged(user => {
+//   if(user) {
+//     window.location.replace('/authenticated');  }
+//   });
+
+// });
 
 </script>
 

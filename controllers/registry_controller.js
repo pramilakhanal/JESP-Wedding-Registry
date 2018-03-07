@@ -20,9 +20,9 @@ router.get("/signup", function(req, res) {
 	res.sendFile(path.join(__dirname, '../public/assets/js/Signup.html'));
 });
 
-router.post("/signup", function(req, res) {
-	res.render("index");
-});
+ router.post("/signup", function(req, res) {
+ 	res.render("index");
+ });
 
 router.get("/authenticated", function(req, res) {
 	wedding.all(function(data) {
