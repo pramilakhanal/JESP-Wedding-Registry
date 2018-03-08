@@ -32,11 +32,15 @@ var orm = {
       if (err) {
         throw err;
       }
-
+  try{
+      console.log('all is well...', result);
       callback(result);
-
+      }
+  catch (err) {
+      console.log('Something went wrong...', err);
+  }
     });
   }
+  
 };
-
  module.exports = orm;
