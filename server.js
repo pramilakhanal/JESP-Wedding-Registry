@@ -16,9 +16,9 @@ app.use(express.static("public"));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(methodOverride("_method"));
-// parse application/json
 app.use(bodyParser.json());
+// app.use(methodOverride("_method"));
+// parse application/json
 
 
 app.engine("handlebars", expressHandlebars({ defaultLayout: "main" }));

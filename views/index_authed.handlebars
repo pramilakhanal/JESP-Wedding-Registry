@@ -43,14 +43,24 @@
             {{#unless this.reserved}}
 
             <div class="well well-lg"><b>{{this.gift_name}}</b>
-            <form action="/{{this.id}}/0?_method=PUT" method="POST">
-              <button type="submit">Reserve</button>
-            </form><form action="/{{this.id}}/0?_method=PUT" method="POST">
-            </form></div>
+              <button data-id="{{this.id}}" data-reserved="{{this.reserved}}" onclick="reserve(this)">Reserve</button>
+            </div>
             {{/unless}}
             {{/each}}
           </div>
         </div>
+        <script>
+          function reserve(gift)
+          {
+          var id = $(gift).attr('data-id');
+          var reserved = $(gift).attr('data-reserved');
+            fetch(`./${id}/${reserved}`, {
+              method: 'PUT'
+            }).then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(response => window.location.assign('./authenticated'));
+          }
+        </script>
 
 
         <div class="col s12 m4">
@@ -69,12 +79,22 @@
   
 
       <div class="col-lg-4 col-lg-offset-4" id="giftEntrySection">
-        <form action="/?_method=POST" method="POST">
           <h4 class="red-text accent-1">Enter a Gift: </h4>
-          <input type="text" name="gift_name">
-          <button type="submit" class="btn red accent-1">Submit</button>
-        </form>
+          <input id="gift_name" type="text" name="gift_name">
+          <button onclick="submitGift()" class="btn red accent-1">Submit</button>
       </div>
+      <script>
+          function submitGift()
+          {
+            fetch(`/`, {
+              method: 'POST',
+              body: JSON.stringify({gift_name: $('#gift_name').val()}),
+              headers: new Headers({'Content-Type': 'application/json'})
+            }).then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(response => window.location.assign('./authenticated'));
+          }
+      </script>
 
     </div>
   </div>
