@@ -33,7 +33,7 @@ Cash Gift Modal
 - Stripe - https://stripe.com/
 - Nightmare - http://www.nightmarejs.org/
 - Heroku - https://www.heroku.com/
----
+--
 - body-parser NPM Package - https://www.npmjs.com/package/body-parser
 - Method-Override NPM Package - https://www.npmjs.com/package/method-override
 - Express NPM Package - https://www.npmjs.com/package/express
