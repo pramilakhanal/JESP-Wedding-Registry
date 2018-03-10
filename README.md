@@ -7,6 +7,8 @@ This app was created during mod-15/16 of the DU web dev bootcap 2017/2018. It is
 ## Live Site Link
 See app: https://gentle-citadel-47852.herokuapp.com/
 
+---
+
 ## Screen Shots
 
 ![Screen shot1](public/assets/images/readme1.png)
@@ -24,6 +26,8 @@ Guest Access Page
 ![Screen shot5](public/assets/images/readme5.png)
 Cash Gift Modal
 
+---
+
 ## Technologies used
 - Node.js - https://nodejs.org/en/
 - Express.js - https://expressjs.com/
@@ -33,7 +37,6 @@ Cash Gift Modal
 - Stripe - https://stripe.com/
 - Nightmare - http://www.nightmarejs.org/
 - Heroku - https://www.heroku.com/
---
 - body-parser NPM Package - https://www.npmjs.com/package/body-parser
 - Method-Override NPM Package - https://www.npmjs.com/package/method-override
 - Express NPM Package - https://www.npmjs.com/package/express
@@ -43,7 +46,9 @@ Cash Gift Modal
 - Nightmare NPM Package - https://www.npmjs.com/package/nightmare
 - Chai NPM Package - https://www.npmjs.com/package/chai
 
-## Authors
+---
+
+## Developers
 
 * **Jeffrey Phelps** - [Jeffrey Phelps](https://github.com/JeffreyPhelps)
 * **Eric Goldstein** - [Eric Goldstein](https://github.com/JeffreyPhelps)
