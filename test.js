@@ -6,10 +6,10 @@ describe("Wedding Registry", function() {
   // Extending it to 30 seconds to have time to load the pages
 
   this.timeout(30000);
-  it("should send user to the landing page", function(done) {
+  it("should send user to the heroku app page", function(done) {
     // ID for the login button.
     Nightmare({ show: true })
-      .goto("wbb site in heroku.com")
+      .goto("https://jesp-wedding-registry.herokuapp.com/")
       // Click the catalog link
       .click("a[href='/learn/all']")
       // Evaluate the title
@@ -25,7 +25,7 @@ describe("Wedding Registry", function() {
 
   it("should present a link to user page after login", function(done) {
     new Nightmare({ show: true })
-      .goto("https://www.codecademy.com/login")
+      .goto("https://jesp-wedding-registry.herokuapp.com/")
       // Enter username.
       .type("#user_login", "ResilD")
       // Enter password.
