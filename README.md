@@ -5,7 +5,7 @@
 This app was created during mod-15/16 of the DU web dev bootcap 2017/2018. It is a full-stack, Wedding Gift Registry application built with Node, Express, Handlebars, ORM, MySQL, Firebase, Stripe, Nightmare/Mocha/Chai, Heroku, and uses the MVC design pattern.
 
 ## Live Site Link
-See app: https://gentle-citadel-47852.herokuapp.com/
+See app: https://jesp-wedding-registry.herokuapp.com/
 
 ---
 
@@ -51,6 +51,6 @@ See app: https://gentle-citadel-47852.herokuapp.com/
 ## Developers
 
 * **Jeffrey Phelps** - [Jeffrey Phelps](https://github.com/JeffreyPhelps)
-* **Eric Goldstein** - [Eric Goldstein](https://github.com/JeffreyPhelps)
+* **Eric Goldstein** - [Eric Goldstein](https://github.com/ericgoldstein)
 * **Pramila Khanal** - [Pramila Khanal](https://github.com/pramilakhanal)
 * **Sam Bouzroud** - [Sam Bouzroud](https://github.com/JeffreyPhelps)
