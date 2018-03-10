@@ -11,20 +11,20 @@ See app: https://gentle-citadel-47852.herokuapp.com/
 
 ## Screen Shots
 
+### Landing Page
 ![Screen shot1](public/assets/images/readme1.png)
-Landing Page
 
+### Login/Sign Up Page
 ![Screen shot2](public/assets/images/readme2.png)
-Login/Sign Up Page
 
+### Host/Gift Entry Page
 ![Screen shot3](public/assets/images/readme3.png)
-Host/Gift Entry Page
 
+### Guest Access Page
 ![Screen shot4](public/assets/images/readme4.png)
-Guest Access Page
 
+### Cash Gift Modal
 ![Screen shot5](public/assets/images/readme5.png)
-Cash Gift Modal
 
 ---
 
