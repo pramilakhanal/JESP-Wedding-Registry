@@ -1,21 +1,27 @@
-<!DOCTYPE html>
-  <html>
-    <head>
-  
-    <title>Wedding Registry</title>
-     <meta charset="utf-8">
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-      <!-- Compiled and minified  materialize CSS -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<!-- Eric Goldstein, Pramila Khanal, Sam Bouzroud, Jeffrey Phelps - 
+    DU Web Dev Bootcamp 2017/2018 - Mod-17 Homework - Project 2 -->
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <!-- CSS -->
-      <link rel="stylesheet" type="text/css" href="./assets/css/login.css"/>
-        </head>
-    <body background="assets/images/loginbg.png">
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Wedding Registry</title>
+    <meta charset="utf-8">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified  materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/login.css" />
+    
+</head>
+
+<body background="assets/images/loginbg.png">
 
 
 
@@ -50,7 +56,7 @@
                                     <label for="password">Password</label>
                                 </div>
                             </div>
-                            
+
                             <div class="input-field right-align">
                                 <button class="btn" id="submit" type="submit" name="action">Submit
                                     <i class="material-icons right">send</i>
@@ -64,91 +70,91 @@
     </div>
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-     <!-- Firebase Reference -->
-      <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-      <!-- Compiled and minified JavaScript -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-      <!-- <script type="text/javascript" src="./assets/javascript/weddings.js"></script> -->
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!-- <script type="text/javascript" src="./assets/javascript/weddings.js"></script> -->
 
 
     <script type="text/javascript">
-      $(document).ready(function(){
+        $(document).ready(function () {
 
-    var config = {
-    apiKey: "AIzaSyApDL1HTnbpSrAvuwP-PE8SXx6Ap1K0rC8",
-    authDomain: "project2-efb9c.firebaseapp.com",
-    databaseURL: "https://project2-efb9c.firebaseio.com",
-    projectId: "project2-efb9c",
-    storageBucket: "project2-efb9c.appspot.com",
-    messagingSenderId: "712607808160"
-  };
-firebase.initializeApp(config);
-
-
-$("#submit").on("click", function(event) {
-       event.preventDefault();
-     var userEmail = document.getElementById("email").value;
-     var userPassword = document.getElementById("password").value;
+            var config = {
+                apiKey: "AIzaSyApDL1HTnbpSrAvuwP-PE8SXx6Ap1K0rC8",
+                authDomain: "project2-efb9c.firebaseapp.com",
+                databaseURL: "https://project2-efb9c.firebaseio.com",
+                projectId: "project2-efb9c",
+                storageBucket: "project2-efb9c.appspot.com",
+                messagingSenderId: "712607808160"
+            };
+            firebase.initializeApp(config);
 
 
-      firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword)
-      .then((response, error) => {
-       console.log(response);
-       if(!error) {
-        window.location.replace('/authenticated');
-       }
-     })
-      .catch(function(error) {
-       // Handle Errors here.
-           var errorCode = error.code;
-           var errorMessage = error.message;
+            $("#submit").on("click", function (event) {
+                event.preventDefault();
+                var userEmail = document.getElementById("email").value;
+                var userPassword = document.getElementById("password").value;
 
-        console.log("Error : " + errorMessage);
-        if (error.code === "auth/email-already-in-use") 
-          alert(error);
-    
+
+                firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword)
+                    .then((response, error) => {
+                        console.log(response);
+                        if (!error) {
+                            window.location.replace('/authenticated');
+                        }
+                    })
+                    .catch(function (error) {
+                        // Handle Errors here.
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+
+                        console.log("Error : " + errorMessage);
+                        if (error.code === "auth/email-already-in-use")
+                            alert(error);
+
+                    });
+
+            });
+
         });
 
-    });
-
- });
-  
-//   firebase
-//       .auth()
-//       .createUserWithEmailAndPassword(userEmail, userPassword)
-//       .catch(function(error) {
-//         console.log("register error", error);
-//         if (error.code === "auth/email-already-in-use") {
-//           var credential = firebase.auth.EmailAuthProvider.credential(userEmail, userPassword)
-//           alert(error);
-//         }
-//       });
+        //   firebase
+        //       .auth()
+        //       .createUserWithEmailAndPassword(userEmail, userPassword)
+        //       .catch(function(error) {
+        //         console.log("register error", error);
+        //         if (error.code === "auth/email-already-in-use") {
+        //           var credential = firebase.auth.EmailAuthProvider.credential(userEmail, userPassword)
+        //           alert(error);
+        //         }
+        //       });
 
 
-//     });
+        //     });
 
-//   // app.signOut = function() {
-//   //   // Sign out
-//   // firebase.auth().signOut();
-//   // };
-//   // // Listen to auth state changes
-//   // firebase.auth().onAuthStateChanged(function(user) {
-//   //   app.user = user;
-//   //   console.log("user", user);
-//   //   window.location.replace('/authenticated');
-//   // });
+        //   // app.signOut = function() {
+        //   //   // Sign out
+        //   // firebase.auth().signOut();
+        //   // };
+        //   // // Listen to auth state changes
+        //   // firebase.auth().onAuthStateChanged(function(user) {
+        //   //   app.user = user;
+        //   //   console.log("user", user);
+        //   //   window.location.replace('/authenticated');
+        //   // });
 
-//   firebase.auth().onAuthStateChanged(user => {
-//   if(user) {
-//     window.location.replace('/authenticated');  }
-//   });
+        //   firebase.auth().onAuthStateChanged(user => {
+        //   if(user) {
+        //     window.location.replace('/authenticated');  }
+        //   });
 
-// });
+        // });
+    </script>
 
-</script>
 
 
-     
-      
-    </body>
-  </html>
+
+</body>
+
+</html>

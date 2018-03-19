@@ -1,192 +1,225 @@
+<!-- Eric Goldstein, Pramila Khanal, Sam Bouzroud, Jeffrey Phelps - 
+    DU Web Dev Bootcamp 2017/2018 - Mod-17 Homework - Project 2 -->
 
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo"><img src="assets/images/jesplogo.png" id="jespLogo" /></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="/">Sign Out</a></li>
-      </ul>
+<nav class="white" role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="#" class="brand-logo">
+      <img src="assets/images/jesplogo.png" id="jespLogo" />
+    </a>
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <a href="/">Sign Out</a>
+      </li>
+    </ul>
 
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="/">Sign Out</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center red-text text-lighten-2">Wedding Gift Registry</h1>
-        <div class="row center">
-          <h5 class="header col s12 black-text light">Support your loved ones and friends on their special day</h5>
-        </div>
-        <div class="row center">
-          <a href="/" class='btn red accent-1'>Sign out</a>
-        </div>
-
-      </div>
-    </div>
-    <div class="parallax"><img src="assets/images/background1.jpg" alt="Unsplashed background img 1"></div>
+    <ul id="nav-mobile" class="side-nav">
+      <li>
+        <a href="/">Sign Out</a>
+      </li>
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse">
+      <i class="material-icons">menu</i>
+    </a>
   </div>
+</nav>
+
+<div id="index-banner" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br>
+      <br>
+      <h1 class="header center red-text text-lighten-2">Wedding Gift Registry</h1>
+      <div class="row center">
+        <h5 class="header col s12 black-text light">Support your loved ones and friends on their special day</h5>
+      </div>
+      <div class="row center">
+        <a href="/" class='btn red accent-1'>Sign out</a>
+      </div>
+
+    </div>
+  </div>
+  <div class="parallax">
+    <img src="assets/images/background1.jpg" alt="Unsplashed background img 1">
+  </div>
+</div>
 
 
-  <div class="container">
-    <div class="section">
+<div class="container">
+  <div class="section">
 
-      <div class="row center" id="giftSection">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center red-text accent-1"><i class="material-icons">loyalty</i></h2>
-            <h5 class="center red-text accent-1">Available Gifts</h5>
-            {{#each wedding}}
-            {{#unless this.reserved}}
+    <div class="row center" id="giftSection">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center red-text accent-1">
+            <i class="material-icons">loyalty</i>
+          </h2>
+          <h5 class="center red-text accent-1">Available Gifts</h5>
+          {{#each wedding}} {{#unless this.reserved}}
 
-            <div class="well well-lg"><b>{{this.gift_name}}</b>
-              <button data-id="{{this.id}}" data-reserved="{{this.reserved}}" onclick="reserve(this)">Reserve</button>
-            </div>
-            {{/unless}}
-            {{/each}}
+          <div class="well well-lg">
+            <b>{{this.gift_name}}</b>
+            <button data-id="{{this.id}}" data-reserved="{{this.reserved}}" onclick="reserve(this)">Reserve</button>
           </div>
+          {{/unless}} {{/each}}
         </div>
-        <script>
-          function reserve(gift)
-          {
+      </div>
+      <script>
+        function reserve(gift) {
           var id = $(gift).attr('data-id');
           var reserved = $(gift).attr('data-reserved');
-            fetch(`./${id}/${reserved}`, {
-              method: 'PUT'
-            }).then(res => res.json())
+          fetch(`./${id}/${reserved}`, {
+            method: 'PUT'
+          }).then(res => res.json())
             .catch(error => console.error('Error:', error))
             .then(response => window.location.assign('./guestlist'));
-          }
-        </script>
-
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center red-text accent-1"><i class="material-icons">card_giftcard</i></h2>
-            <h5 class="center red-text accent-1">Reserved Gifts</h5>
-            {{#each wedding}}
-            {{#if this.reserved}}
-            <div class="well well-lg"><b>{{this.gift_name}}</b>
-            </div>
-           {{/if}}
-           {{/each}}
-          </div>
-        </div>
-      </div>
-       <div class="center-align" id="stripe">
-          <h5 class="red-text accent-1" id="cashGiftTitle">Cash Gift</h5>
-          <form id="cashForm">
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh" data-amount=""
-              data-name="Stripe.com" data-description="Widget" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-              data-locale="auto" data-zip-code="true"></script>
-          </form>
-        </div>
-  
-      <script>
-          function submitGift()
-          {
-            fetch(`/`, {
-              method: 'POST',
-              body: JSON.stringify({gift_name: $('#gift_name').val()}),
-              headers: new Headers({'Content-Type': 'application/json'})
-            }).then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then(response => window.location.assign('./guestlist'));
-          }
+        }
       </script>
 
-    </div>
-  </div>
 
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 black-text light">Congratulations to the happy couple!</h5>
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center red-text accent-1">
+            <i class="material-icons">card_giftcard</i>
+          </h2>
+          <h5 class="center red-text accent-1">Reserved Gifts</h5>
+          {{#each wedding}} {{#if this.reserved}}
+          <div class="well well-lg">
+            <b>{{this.gift_name}}</b>
+          </div>
+          {{/if}} {{/each}}
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="assets/images/background2.jpg" alt="Unsplashed background img 2"></div>
-  </div>
-
-  <div class="container">
-    <div class="section">
-
-      <div class="row">
-        <div class="col s12 center" id="aboutCoupleSection">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4 id="aboutTitle">About the Couple</h4>
-                    <p class="left-align red-text light" id="aboutText">Emma and Gavin met in the summer of 2007 
-            when Gavin was hired at Bigshot props as a project manager. Emma had just started 
-            a few weeks prior as the new receptionist. After dating for a year Emma and Gavin 
-            decided to make the leap and move in together. They got a lovely loft apartment in 
-            Durban after Gavin had been living by the beach for more than six years. They were 
-            just two kids in love. At some point while all this had been happening over the 
-            last couple of years, Gavin realized that he wanted it all to keep happening, 
-            forever. He found the perfect ring and waited until a day after Valentines Day to 
-            ask the question, because he just has to be different. He picked up Emma from work 
-            and brought her home to candles and champagne. She said yes!!!;</p>
-        </div>
-      </div>
-
+    <div class="center-align" id="stripe">
+      <h5 class="red-text accent-1" id="cashGiftTitle">Cash Gift</h5>
+      <form id="cashForm">
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh" data-amount=""
+          data-name="Stripe.com" data-description="Widget" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+          data-locale="auto" data-zip-code="true"></script>
+      </form>
     </div>
+
+    <script>
+      function submitGift() {
+        fetch(`/`, {
+          method: 'POST',
+          body: JSON.stringify({ gift_name: $('#gift_name').val() }),
+          headers: new Headers({ 'Content-Type': 'application/json' })
+        }).then(res => res.json())
+          .catch(error => console.error('Error:', error))
+          .then(response => window.location.assign('./guestlist'));
+      }
+    </script>
+
   </div>
+</div>
 
 
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 black-text light">Don't miss out on a wonderful evening of celebration!</h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="assets/images/background3.jpg" alt="Unsplashed background img 3"></div>
-  
-      </div>
-    </div>
-  </div>
-
-  <footer class="page-footer rose">
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
     <div class="container">
-      <div class="row" id="weddingInfoSection">
-        <div class="col l6 s12" id="weddingInfoText">
-          <h5 class="white-text">Wedding Info</h5>
-          <p class="grey-text text-lighten-4">The event will be taking place at the Grant–Humphreys Mansion 
-            on Friday the 23rd of June at six o'clock in the eveing, located in Denver. The Reception will 
-            be held immediatley following the ceremony in the Ritz-Carlton Hotel in the Presidential Room.</p>
-        </div>
-
-        <div class="col l3 s12">
-          <h5 class="white-text">Contacts</h5>
-          <ul>
-            <li><a class="white-text" href="https://www.google.com/maps/place/Grant-Humphreys+Mansion/@39.7279503,-104.980545,15z/data=!4m5!3m4!1s0x0:0x6298547482e03045!8m2!3d39.7279503!4d-104.980545">Grant–Humphreys Mansion</a></li>
-            <li><a class="white-text" href="http://www.ritzcarlton.com/en/hotels/colorado/denver">Ritz-Carlton</a></li>
-            <li><a class="white-text" href="http://www.hourglassdenver.com/">Hourglass Wedding Managers</a></li>
-            <li><a class="white-text" href="#!">Dave Wilson Best Man</a></li>
-          </ul>
-        </div>
-
-        <div class="col l3 s12">
-          <h5 class="white-text">Phone</h5>
-          <ul>
-            <li><a class="white-text" href="#!">303-894-2505</a></li>
-            <li><a class="white-text" href="#!">303-321-3800</a></li>
-            <li><a class="white-text" href="#!">720-722-2102</a></li>
-            <li><a class="white-text" href="#!">303-555-1425</a></li>
-          </ul>
-        </div>
+      <div class="row center">
+        <h5 class="header col s12 black-text light">Congratulations to the happy couple!</h5>
       </div>
     </div>
-    <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="#">DU Web Dev Bootcampers</a>
-  
+  </div>
+  <div class="parallax">
+    <img src="assets/images/background2.jpg" alt="Unsplashed background img 2">
+  </div>
+</div>
+
+<div class="container">
+  <div class="section">
+
+    <div class="row">
+      <div class="col s12 center" id="aboutCoupleSection">
+        <h3>
+          <i class="mdi-content-send brown-text"></i>
+        </h3>
+        <h4 id="aboutTitle">About the Couple</h4>
+        <p class="left-align red-text light" id="aboutText">Emma and Gavin met in the summer of 2007 when Gavin was hired at Bigshot props as a project manager. Emma had just
+          started a few weeks prior as the new receptionist. After dating for a year Emma and Gavin decided to make the leap
+          and move in together. They got a lovely loft apartment in Durban after Gavin had been living by the beach for more
+          than six years. They were just two kids in love. At some point while all this had been happening over the last
+          couple of years, Gavin realized that he wanted it all to keep happening, forever. He found the perfect ring and
+          waited until a day after Valentines Day to ask the question, because he just has to be different. He picked up
+          Emma from work and brought her home to candles and champagne. She said yes!!!;</p>
       </div>
     </div>
 
-  </footer>
+  </div>
+</div>
+
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <h5 class="header col s12 black-text light">Don't miss out on a wonderful evening of celebration!</h5>
+      </div>
+    </div>
+  </div>
+  <div class="parallax">
+    <img src="assets/images/background3.jpg" alt="Unsplashed background img 3">
+  </div>
+
+</div>
+</div>
+</div>
+
+<footer class="page-footer rose">
+  <div class="container">
+    <div class="row" id="weddingInfoSection">
+      <div class="col l6 s12" id="weddingInfoText">
+        <h5 class="white-text">Wedding Info</h5>
+        <p class="grey-text text-lighten-4">The event will be taking place at the Grant–Humphreys Mansion on Friday the 23rd of June at six o'clock in the eveing,
+          located in Denver. The Reception will be held immediatley following the ceremony in the Ritz-Carlton Hotel in the
+          Presidential Room.</p>
+      </div>
+
+      <div class="col l3 s12">
+        <h5 class="white-text">Contacts</h5>
+        <ul>
+          <li>
+            <a class="white-text" href="https://www.google.com/maps/place/Grant-Humphreys+Mansion/@39.7279503,-104.980545,15z/data=!4m5!3m4!1s0x0:0x6298547482e03045!8m2!3d39.7279503!4d-104.980545">Grant–Humphreys Mansion</a>
+          </li>
+          <li>
+            <a class="white-text" href="http://www.ritzcarlton.com/en/hotels/colorado/denver">Ritz-Carlton</a>
+          </li>
+          <li>
+            <a class="white-text" href="http://www.hourglassdenver.com/">Hourglass Wedding Managers</a>
+          </li>
+          <li>
+            <a class="white-text" href="#!">Dave Wilson Best Man</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col l3 s12">
+        <h5 class="white-text">Phone</h5>
+        <ul>
+          <li>
+            <a class="white-text" href="#!">303-894-2505</a>
+          </li>
+          <li>
+            <a class="white-text" href="#!">303-321-3800</a>
+          </li>
+          <li>
+            <a class="white-text" href="#!">720-722-2102</a>
+          </li>
+          <li>
+            <a class="white-text" href="#!">303-555-1425</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      Made by
+      <a class="brown-text text-lighten-3" href="#">DU Web Dev Bootcampers</a>
+
+    </div>
+  </div>
+
+</footer>

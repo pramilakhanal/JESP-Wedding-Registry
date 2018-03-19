@@ -1,4 +1,5 @@
-
+/* Eric Goldstein, Pramila Khanal, Sam Bouzroud, Jeffrey Phelps - 
+    DU Web Dev Bootcamp 2017/2018 - Mod-17 Homework - Project 2 */
 
 #panell {
   margin-top: 150px;
@@ -6,11 +7,11 @@
 }
 
 #loginbtn {
-     float: left;
-     margin-bottom: 10px;
-     margin-right: 10px;
-   }
-   
+  float: left;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
 #title {
   background-color: #2bbbad;
   color: white;
@@ -19,16 +20,17 @@
 }
 
 form {
-  padding:0px;
+  padding: 0px;
   border-radius: 3px;
   box-sizing: border-box;
 }
 
-#username,#password {
-margin-left: 20px;
-margin-right: 20px;
+#username,
+#password {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 #checkbox {
-margin-left: 30px;
+  margin-left: 30px;
 }

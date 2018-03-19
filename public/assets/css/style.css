@@ -1,4 +1,8 @@
+/* Eric Goldstein, Pramila Khanal, Sam Bouzroud, Jeffrey Phelps - 
+    DU Web Dev Bootcamp 2017/2018 - Mod-17 Homework - Project 2 */
+
 /* Custom Stylesheet */
+
 /**
  * Use this file to override Materialize files so you can update
  * the core Materialize files in the future
@@ -23,12 +27,12 @@ p {
   min-height: 380px;
   line-height: 0;
   height: auto;
-  color: rgba(255,255,255,.9);
+  color: rgba(255, 255, 255, .9);
 }
-  .parallax-container .section {
-    width: 100%;
-  }
 
+.parallax-container .section {
+  width: 100%;
+}
 
 #jespLogo {
   height: 25px;
@@ -73,6 +77,7 @@ p {
 .icon-block {
   padding: 0 15px;
 }
+
 .icon-block .material-icons {
   font-size: inherit;
 }
@@ -81,10 +86,7 @@ footer.page-footer {
   margin: 0;
 }
 
-
-
-
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width: 992px) {
   .parallax-container .section {
     position: absolute;
     top: 40%;
@@ -94,11 +96,10 @@ footer.page-footer {
   }
 }
 
-@media only screen and (max-width : 600px) {
+@media only screen and (max-width: 600px) {
   #index-banner .section {
     top: 0;
   }
-
   #giftSection {
     margin-left: auto;
   }
