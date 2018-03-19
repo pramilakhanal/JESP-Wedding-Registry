@@ -1,3 +1,5 @@
+// Eric Goldstein, Pramila Khanal, Sam Bouzroud, Jeffrey Phelps - 
+//  DU Web Dev Bootcamp 2017/2018 - Mod-17 Homework - Project 2
 
 var connection = require("../config/connection.js");
 
