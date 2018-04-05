@@ -1,5 +1,5 @@
 // Eric Goldstein, Pramila Khanal, Sam Bouzroud, Jeffrey Phelps - 
-//  DU Web Dev Bootcamp 2017/2018 - Mod-17 Homework - Project 2
+//  DU Web Dev Bootcamp 2017/2018 - Mod-17 Homework - Project 2//
 
 // Set up MySQL connection.
 var mysql = require("mysql");
